@@ -4,13 +4,14 @@
 <span class="hljs-keyword">import</span> {NgModule} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> {FormsModule, ReactiveFormsModule} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/forms'</span>;
 <span class="hljs-keyword">import</span> {CommonModule} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/common'</span>;
-<span class="hljs-keyword">import</span> {ExampleMaterialModule} <span class="hljs-keyword">from</span> <span class="hljs-string">'./material-module'</span>;
+<span class="hljs-keyword">import</span> {MaterialWrapperModule} <span class="hljs-keyword">from</span> <span class="hljs-string">'./material-wrapper-module'</span>;
+<span class="hljs-keyword">import</span> {RdAngularWrapperModule} <span class="hljs-keyword">from</span> <span class="hljs-string">'./rd-angular-wrapper-module'</span>;
 <span class="hljs-keyword">import</span> {AutocompleteAutoActiveFirstOptionExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./autocomplete-auto-active-first-option/autocomplete-auto-active-first-option-example'</span>;
 <span class="hljs-keyword">import</span> {AutocompleteDisplayExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./autocomplete-display/autocomplete-display-example'</span>;
 <span class="hljs-keyword">import</span> {AutocompleteFilterExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./autocomplete-filter/autocomplete-filter-example'</span>;
 <span class="hljs-keyword">import</span> {AutocompleteOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./autocomplete-overview/autocomplete-overview-example'</span>;
 <span class="hljs-keyword">import</span> {AutocompleteSimpleExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./autocomplete-simple/autocomplete-simple-example'</span>;
-<span class="hljs-keyword">import</span> {BottomSheetOverviewExampleSheet,BottomSheetOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./bottom-sheet-overview/bottom-sheet-overview-example'</span>;
+<span class="hljs-keyword">import</span> {BlockedApptTimeOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./blocked-appt-time-overview/blocked-appt-time-overview-example'</span>;
 <span class="hljs-keyword">import</span> {ButtonOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./button-overview/button-overview-example'</span>;
 <span class="hljs-keyword">import</span> {ButtonToggleExclusiveExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./button-toggle-exclusive/button-toggle-exclusive-example'</span>;
 <span class="hljs-keyword">import</span> {ButtonToggleOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./button-toggle-overview/button-toggle-overview-example'</span>;
@@ -36,14 +37,12 @@
 <span class="hljs-keyword">import</span> {DatepickerStartViewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./datepicker-start-view/datepicker-start-view-example'</span>;
 <span class="hljs-keyword">import</span> {DatepickerTouchExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./datepicker-touch/datepicker-touch-example'</span>;
 <span class="hljs-keyword">import</span> {DatepickerValueExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./datepicker-value/datepicker-value-example'</span>;
-<span class="hljs-keyword">import</span> {DatepickerViewsSelectionExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./datepicker-views-selection/datepicker-views-selection-example'</span>;
 <span class="hljs-keyword">import</span> {DialogContentExampleDialog,DialogContentExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./dialog-content/dialog-content-example'</span>;
 <span class="hljs-keyword">import</span> {DialogDataExampleDialog,DialogDataExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./dialog-data/dialog-data-example'</span>;
 <span class="hljs-keyword">import</span> {DialogElementsExampleDialog,DialogElementsExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./dialog-elements/dialog-elements-example'</span>;
 <span class="hljs-keyword">import</span> {DialogOverviewExampleDialog,DialogOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./dialog-overview/dialog-overview-example'</span>;
 <span class="hljs-keyword">import</span> {DividerOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./divider-overview/divider-overview-example'</span>;
 <span class="hljs-keyword">import</span> {ElevationOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./elevation-overview/elevation-overview-example'</span>;
-<span class="hljs-keyword">import</span> {ExpansionExpandCollapseAllExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./expansion-expand-collapse-all/expansion-expand-collapse-all-example'</span>;
 <span class="hljs-keyword">import</span> {ExpansionOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./expansion-overview/expansion-overview-example'</span>;
 <span class="hljs-keyword">import</span> {ExpansionStepsExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./expansion-steps/expansion-steps-example'</span>;
 <span class="hljs-keyword">import</span> {MyTelInput,FormFieldCustomControlExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./form-field-custom-control/form-field-custom-control-example'</span>;
@@ -56,7 +55,7 @@
 <span class="hljs-keyword">import</span> {GridListDynamicExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./grid-list-dynamic/grid-list-dynamic-example'</span>;
 <span class="hljs-keyword">import</span> {GridListOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./grid-list-overview/grid-list-overview-example'</span>;
 <span class="hljs-keyword">import</span> {IconOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./icon-overview/icon-overview-example'</span>;
-<span class="hljs-keyword">import</span> {IconSvgExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./icon-svg/icon-svg-example'</span>;
+<span class="hljs-keyword">import</span> {IconSvgExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./icon-svg-example/icon-svg-example'</span>;
 <span class="hljs-keyword">import</span> {InputAutosizeTextareaExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./input-autosize-textarea/input-autosize-textarea-example'</span>;
 <span class="hljs-keyword">import</span> {InputClearableExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./input-clearable/input-clearable-example'</span>;
 <span class="hljs-keyword">import</span> {InputErrorStateMatcherExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./input-error-state-matcher/input-error-state-matcher-example'</span>;
@@ -122,6 +121,7 @@
 <span class="hljs-keyword">import</span> {TableSortingExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./table-sorting/table-sorting-example'</span>;
 <span class="hljs-keyword">import</span> {TabsOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tabs-overview/tabs-overview-example'</span>;
 <span class="hljs-keyword">import</span> {TabsTemplateLabelExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tabs-template-label/tabs-template-label-example'</span>;
+<span class="hljs-keyword">import</span> {TemplateCompilerOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./template-compiler-overview/template-compiler-overview-example'</span>;
 <span class="hljs-keyword">import</span> {ToolbarMultirowExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./toolbar-multirow/toolbar-multirow-example'</span>;
 <span class="hljs-keyword">import</span> {ToolbarOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./toolbar-overview/toolbar-overview-example'</span>;
 <span class="hljs-keyword">import</span> {TooltipDelayExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tooltip-delay/tooltip-delay-example'</span>;
@@ -129,8 +129,6 @@
 <span class="hljs-keyword">import</span> {TooltipModifiedDefaultsExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tooltip-modified-defaults/tooltip-modified-defaults-example'</span>;
 <span class="hljs-keyword">import</span> {TooltipOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tooltip-overview/tooltip-overview-example'</span>;
 <span class="hljs-keyword">import</span> {TooltipPositionExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tooltip-position/tooltip-position-example'</span>;
-<span class="hljs-keyword">import</span> {TreeFlatOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tree-flat-overview/tree-flat-overview-example'</span>;
-<span class="hljs-keyword">import</span> {TreeNestedOverviewExample} <span class="hljs-keyword">from</span> <span class="hljs-string">'./tree-nested-overview/tree-nested-overview-example'</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> LiveExample {
   title: <span class="hljs-built_in">string</span>;
@@ -160,11 +158,9 @@
     title: <span class="hljs-string">'Simple autocomplete'</span>,
     component: AutocompleteSimpleExample
   },
-  <span class="hljs-string">'bottom-sheet-overview'</span>: {
-    title: <span class="hljs-string">'Bottom Sheet Overview'</span>,
-    component: BottomSheetOverviewExample,
-    additionalFiles: [<span class="hljs-string">"bottom-sheet-overview-example-sheet.html"</span>],
-    selectorName: <span class="hljs-string">'BottomSheetOverviewExample, BottomSheetOverviewExampleSheet'</span>
+  <span class="hljs-string">'blocked-appt-time-overview'</span>: {
+    title: <span class="hljs-string">'blocked-appt-time overview'</span>,
+    component: BlockedApptTimeOverviewExample
   },
   <span class="hljs-string">'button-overview'</span>: {
     title: <span class="hljs-string">'Basic buttons'</span>,
@@ -266,10 +262,6 @@
     title: <span class="hljs-string">'Datepicker selected value'</span>,
     component: DatepickerValueExample
   },
-  <span class="hljs-string">'datepicker-views-selection'</span>: {
-    title: <span class="hljs-string">'Datepicker emulating a Year and month picker'</span>,
-    component: DatepickerViewsSelectionExample
-  },
   <span class="hljs-string">'dialog-content'</span>: {
     title: <span class="hljs-string">'Dialog with header, scrollable content and actions'</span>,
     component: DialogContentExample,
@@ -301,10 +293,6 @@
   <span class="hljs-string">'elevation-overview'</span>: {
     title: <span class="hljs-string">'Elevation CSS classes'</span>,
     component: ElevationOverviewExample
-  },
-  <span class="hljs-string">'expansion-expand-collapse-all'</span>: {
-    title: <span class="hljs-string">'Accordion with expand/collapse all toggles'</span>,
-    component: ExpansionExpandCollapseAllExample
   },
   <span class="hljs-string">'expansion-overview'</span>: {
     title: <span class="hljs-string">'Basic expansion panel'</span>,
@@ -622,6 +610,10 @@
     title: <span class="hljs-string">'Complex Example'</span>,
     component: TabsTemplateLabelExample
   },
+  <span class="hljs-string">'template-compiler-overview'</span>: {
+    title: <span class="hljs-string">'template-compiler overview'</span>,
+    component: TemplateCompilerOverviewExample
+  },
   <span class="hljs-string">'toolbar-multirow'</span>: {
     title: <span class="hljs-string">'Multi-row toolbar'</span>,
     component: ToolbarMultirowExample
@@ -650,14 +642,6 @@
     title: <span class="hljs-string">'Tooltip with custom position'</span>,
     component: TooltipPositionExample
   },
-  <span class="hljs-string">'tree-flat-overview'</span>: {
-    title: <span class="hljs-string">'Tree with flat nodes'</span>,
-    component: TreeFlatOverviewExample
-  },
-  <span class="hljs-string">'tree-nested-overview'</span>: {
-    title: <span class="hljs-string">'Tree with nested nodes'</span>,
-    component: TreeNestedOverviewExample
-  },
 };
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> EXAMPLE_LIST = [
@@ -666,7 +650,7 @@
   AutocompleteFilterExample,
   AutocompleteOverviewExample,
   AutocompleteSimpleExample,
-  BottomSheetOverviewExampleSheet,BottomSheetOverviewExample,
+  BlockedApptTimeOverviewExample,
   ButtonOverviewExample,
   ButtonToggleExclusiveExample,
   ButtonToggleOverviewExample,
@@ -692,14 +676,12 @@
   DatepickerStartViewExample,
   DatepickerTouchExample,
   DatepickerValueExample,
-  DatepickerViewsSelectionExample,
   DialogContentExampleDialog,DialogContentExample,
   DialogDataExampleDialog,DialogDataExample,
   DialogElementsExampleDialog,DialogElementsExample,
   DialogOverviewExampleDialog,DialogOverviewExample,
   DividerOverviewExample,
   ElevationOverviewExample,
-  ExpansionExpandCollapseAllExample,
   ExpansionOverviewExample,
   ExpansionStepsExample,
   MyTelInput,FormFieldCustomControlExample,
@@ -778,6 +760,7 @@
   TableSortingExample,
   TabsOverviewExample,
   TabsTemplateLabelExample,
+  TemplateCompilerOverviewExample,
   ToolbarMultirowExample,
   ToolbarOverviewExample,
   TooltipDelayExample,
@@ -785,16 +768,15 @@
   TooltipModifiedDefaultsExample,
   TooltipOverviewExample,
   TooltipPositionExample,
-  TreeFlatOverviewExample,
-  TreeNestedOverviewExample,
 ];
 
 <span class="hljs-meta">@NgModule</span>({
   declarations: EXAMPLE_LIST,
   entryComponents: EXAMPLE_LIST,
   imports: [
-    ExampleMaterialModule,
+    MaterialWrapperModule,
     FormsModule,
+    RdAngularWrapperModule,
     ReactiveFormsModule,
     CommonModule
   ]

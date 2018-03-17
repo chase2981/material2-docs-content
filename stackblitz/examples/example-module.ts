@@ -4,13 +4,14 @@
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {ExampleMaterialModule} from './material-module';
+import {MaterialWrapperModule} from './material-wrapper-module';
+import {RdAngularWrapperModule} from './rd-angular-wrapper-module';
 import {AutocompleteAutoActiveFirstOptionExample} from './autocomplete-auto-active-first-option/autocomplete-auto-active-first-option-example';
 import {AutocompleteDisplayExample} from './autocomplete-display/autocomplete-display-example';
 import {AutocompleteFilterExample} from './autocomplete-filter/autocomplete-filter-example';
 import {AutocompleteOverviewExample} from './autocomplete-overview/autocomplete-overview-example';
 import {AutocompleteSimpleExample} from './autocomplete-simple/autocomplete-simple-example';
-import {BottomSheetOverviewExampleSheet,BottomSheetOverviewExample} from './bottom-sheet-overview/bottom-sheet-overview-example';
+import {BlockedApptTimeOverviewExample} from './blocked-appt-time-overview/blocked-appt-time-overview-example';
 import {ButtonOverviewExample} from './button-overview/button-overview-example';
 import {ButtonToggleExclusiveExample} from './button-toggle-exclusive/button-toggle-exclusive-example';
 import {ButtonToggleOverviewExample} from './button-toggle-overview/button-toggle-overview-example';
@@ -36,14 +37,12 @@ import {DatepickerOverviewExample} from './datepicker-overview/datepicker-overvi
 import {DatepickerStartViewExample} from './datepicker-start-view/datepicker-start-view-example';
 import {DatepickerTouchExample} from './datepicker-touch/datepicker-touch-example';
 import {DatepickerValueExample} from './datepicker-value/datepicker-value-example';
-import {DatepickerViewsSelectionExample} from './datepicker-views-selection/datepicker-views-selection-example';
 import {DialogContentExampleDialog,DialogContentExample} from './dialog-content/dialog-content-example';
 import {DialogDataExampleDialog,DialogDataExample} from './dialog-data/dialog-data-example';
 import {DialogElementsExampleDialog,DialogElementsExample} from './dialog-elements/dialog-elements-example';
 import {DialogOverviewExampleDialog,DialogOverviewExample} from './dialog-overview/dialog-overview-example';
 import {DividerOverviewExample} from './divider-overview/divider-overview-example';
 import {ElevationOverviewExample} from './elevation-overview/elevation-overview-example';
-import {ExpansionExpandCollapseAllExample} from './expansion-expand-collapse-all/expansion-expand-collapse-all-example';
 import {ExpansionOverviewExample} from './expansion-overview/expansion-overview-example';
 import {ExpansionStepsExample} from './expansion-steps/expansion-steps-example';
 import {MyTelInput,FormFieldCustomControlExample} from './form-field-custom-control/form-field-custom-control-example';
@@ -56,7 +55,7 @@ import {FormFieldThemingExample} from './form-field-theming/form-field-theming-e
 import {GridListDynamicExample} from './grid-list-dynamic/grid-list-dynamic-example';
 import {GridListOverviewExample} from './grid-list-overview/grid-list-overview-example';
 import {IconOverviewExample} from './icon-overview/icon-overview-example';
-import {IconSvgExample} from './icon-svg/icon-svg-example';
+import {IconSvgExample} from './icon-svg-example/icon-svg-example';
 import {InputAutosizeTextareaExample} from './input-autosize-textarea/input-autosize-textarea-example';
 import {InputClearableExample} from './input-clearable/input-clearable-example';
 import {InputErrorStateMatcherExample} from './input-error-state-matcher/input-error-state-matcher-example';
@@ -122,6 +121,7 @@ import {TableSelectionExample} from './table-selection/table-selection-example';
 import {TableSortingExample} from './table-sorting/table-sorting-example';
 import {TabsOverviewExample} from './tabs-overview/tabs-overview-example';
 import {TabsTemplateLabelExample} from './tabs-template-label/tabs-template-label-example';
+import {TemplateCompilerOverviewExample} from './template-compiler-overview/template-compiler-overview-example';
 import {ToolbarMultirowExample} from './toolbar-multirow/toolbar-multirow-example';
 import {ToolbarOverviewExample} from './toolbar-overview/toolbar-overview-example';
 import {TooltipDelayExample} from './tooltip-delay/tooltip-delay-example';
@@ -129,8 +129,6 @@ import {TooltipManualExample} from './tooltip-manual/tooltip-manual-example';
 import {TooltipModifiedDefaultsExample} from './tooltip-modified-defaults/tooltip-modified-defaults-example';
 import {TooltipOverviewExample} from './tooltip-overview/tooltip-overview-example';
 import {TooltipPositionExample} from './tooltip-position/tooltip-position-example';
-import {TreeFlatOverviewExample} from './tree-flat-overview/tree-flat-overview-example';
-import {TreeNestedOverviewExample} from './tree-nested-overview/tree-nested-overview-example';
 
 export interface LiveExample {
   title: string;
@@ -160,11 +158,9 @@ export const EXAMPLE_COMPONENTS: {[key: string]: LiveExample} = {
     title: 'Simple autocomplete',
     component: AutocompleteSimpleExample
   },
-  'bottom-sheet-overview': {
-    title: 'Bottom Sheet Overview',
-    component: BottomSheetOverviewExample,
-    additionalFiles: ["bottom-sheet-overview-example-sheet.html"],
-    selectorName: 'BottomSheetOverviewExample, BottomSheetOverviewExampleSheet'
+  'blocked-appt-time-overview': {
+    title: 'blocked-appt-time overview',
+    component: BlockedApptTimeOverviewExample
   },
   'button-overview': {
     title: 'Basic buttons',
@@ -266,10 +262,6 @@ export const EXAMPLE_COMPONENTS: {[key: string]: LiveExample} = {
     title: 'Datepicker selected value',
     component: DatepickerValueExample
   },
-  'datepicker-views-selection': {
-    title: 'Datepicker emulating a Year and month picker',
-    component: DatepickerViewsSelectionExample
-  },
   'dialog-content': {
     title: 'Dialog with header, scrollable content and actions',
     component: DialogContentExample,
@@ -301,10 +293,6 @@ export const EXAMPLE_COMPONENTS: {[key: string]: LiveExample} = {
   'elevation-overview': {
     title: 'Elevation CSS classes',
     component: ElevationOverviewExample
-  },
-  'expansion-expand-collapse-all': {
-    title: 'Accordion with expand/collapse all toggles',
-    component: ExpansionExpandCollapseAllExample
   },
   'expansion-overview': {
     title: 'Basic expansion panel',
@@ -622,6 +610,10 @@ export const EXAMPLE_COMPONENTS: {[key: string]: LiveExample} = {
     title: 'Complex Example',
     component: TabsTemplateLabelExample
   },
+  'template-compiler-overview': {
+    title: 'template-compiler overview',
+    component: TemplateCompilerOverviewExample
+  },
   'toolbar-multirow': {
     title: 'Multi-row toolbar',
     component: ToolbarMultirowExample
@@ -650,14 +642,6 @@ export const EXAMPLE_COMPONENTS: {[key: string]: LiveExample} = {
     title: 'Tooltip with custom position',
     component: TooltipPositionExample
   },
-  'tree-flat-overview': {
-    title: 'Tree with flat nodes',
-    component: TreeFlatOverviewExample
-  },
-  'tree-nested-overview': {
-    title: 'Tree with nested nodes',
-    component: TreeNestedOverviewExample
-  },
 };
 
 export const EXAMPLE_LIST = [
@@ -666,7 +650,7 @@ export const EXAMPLE_LIST = [
   AutocompleteFilterExample,
   AutocompleteOverviewExample,
   AutocompleteSimpleExample,
-  BottomSheetOverviewExampleSheet,BottomSheetOverviewExample,
+  BlockedApptTimeOverviewExample,
   ButtonOverviewExample,
   ButtonToggleExclusiveExample,
   ButtonToggleOverviewExample,
@@ -692,14 +676,12 @@ export const EXAMPLE_LIST = [
   DatepickerStartViewExample,
   DatepickerTouchExample,
   DatepickerValueExample,
-  DatepickerViewsSelectionExample,
   DialogContentExampleDialog,DialogContentExample,
   DialogDataExampleDialog,DialogDataExample,
   DialogElementsExampleDialog,DialogElementsExample,
   DialogOverviewExampleDialog,DialogOverviewExample,
   DividerOverviewExample,
   ElevationOverviewExample,
-  ExpansionExpandCollapseAllExample,
   ExpansionOverviewExample,
   ExpansionStepsExample,
   MyTelInput,FormFieldCustomControlExample,
@@ -778,6 +760,7 @@ export const EXAMPLE_LIST = [
   TableSortingExample,
   TabsOverviewExample,
   TabsTemplateLabelExample,
+  TemplateCompilerOverviewExample,
   ToolbarMultirowExample,
   ToolbarOverviewExample,
   TooltipDelayExample,
@@ -785,16 +768,15 @@ export const EXAMPLE_LIST = [
   TooltipModifiedDefaultsExample,
   TooltipOverviewExample,
   TooltipPositionExample,
-  TreeFlatOverviewExample,
-  TreeNestedOverviewExample,
 ];
 
 @NgModule({
   declarations: EXAMPLE_LIST,
   entryComponents: EXAMPLE_LIST,
   imports: [
-    ExampleMaterialModule,
+    MaterialWrapperModule,
     FormsModule,
+    RdAngularWrapperModule,
     ReactiveFormsModule,
     CommonModule
   ]
