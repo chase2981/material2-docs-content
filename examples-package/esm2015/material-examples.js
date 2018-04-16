@@ -748,6 +748,64 @@ ChipsStackedExample.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
+
+/**
+ * \@title compiler overview
+ */
+class CompilerOverviewExample {
+    constructor() {
+        this.states = [
+            {
+                name: 'Arkansas',
+                population: '2.978M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+            },
+            {
+                name: 'California',
+                population: '39.14M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+            },
+            {
+                name: 'Florida',
+                population: '20.27M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+            },
+            {
+                name: 'Texas',
+                population: '27.47M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+            }
+        ];
+        this.stateCtrl = new FormControl();
+        this.filteredStates = this.stateCtrl.valueChanges
+            .pipe(startWith(''), map(state => state ? this.filterStates(state) : this.states.slice()));
+    }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    filterStates(name) {
+        return this.states.filter(state => state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+    }
+}
+CompilerOverviewExample.decorators = [
+    { type: Component, args: [{
+                selector: 'compiler-overview-example',
+                template: "<form class=\"example-form\"><mat-form-field class=\"example-full-width\"><input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\"><mat-autocomplete #auto=\"matAutocomplete\"><mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\"><img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\"> <span>{{ state.name }}</span> | <small>Population: {{state.population}}</small></mat-option></mat-autocomplete></mat-form-field><br><mat-slide-toggle [checked]=\"stateCtrl.disabled\" (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">Disable Input?</mat-slide-toggle></form>",
+                styles: [".example-form { min-width: 150px; max-width: 500px; width: 100%; } .example-full-width { width: 100%; } "]
+            },] },
+];
+/** @nocollapse */
+CompilerOverviewExample.ctorParameters = () => [];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * \@title Datepicker open method
  */
@@ -3850,64 +3908,6 @@ TabsTemplateLabelExample.ctorParameters = () => [];
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-
-/**
- * \@title template-compiler overview
- */
-class TemplateCompilerOverviewExample {
-    constructor() {
-        this.states = [
-            {
-                name: 'Arkansas',
-                population: '2.978M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-            },
-            {
-                name: 'California',
-                population: '39.14M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-            },
-            {
-                name: 'Florida',
-                population: '20.27M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-            },
-            {
-                name: 'Texas',
-                population: '27.47M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-            }
-        ];
-        this.stateCtrl = new FormControl();
-        this.filteredStates = this.stateCtrl.valueChanges
-            .pipe(startWith(''), map(state => state ? this.filterStates(state) : this.states.slice()));
-    }
-    /**
-     * @param {?} name
-     * @return {?}
-     */
-    filterStates(name) {
-        return this.states.filter(state => state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
-    }
-}
-TemplateCompilerOverviewExample.decorators = [
-    { type: Component, args: [{
-                selector: 'template-compiler-overview-example',
-                template: "<form class=\"example-form\"><mat-form-field class=\"example-full-width\"><input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\"><mat-autocomplete #auto=\"matAutocomplete\"><mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\"><img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\"> <span>{{ state.name }}</span> | <small>Population: {{state.population}}</small></mat-option></mat-autocomplete></mat-form-field><br><mat-slide-toggle [checked]=\"stateCtrl.disabled\" (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">Disable Input?</mat-slide-toggle></form>",
-                styles: [".example-form { min-width: 150px; max-width: 500px; width: 100%; } .example-full-width { width: 100%; } "]
-            },] },
-];
-/** @nocollapse */
-TemplateCompilerOverviewExample.ctorParameters = () => [];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 /**
  * \@title Multi-row toolbar
  */
@@ -4131,6 +4131,10 @@ const EXAMPLE_COMPONENTS = {
     'chips-stacked': {
         title: 'Stacked chips',
         component: ChipsStackedExample
+    },
+    'compiler-overview': {
+        title: 'compiler overview',
+        component: CompilerOverviewExample
     },
     'datepicker-api': {
         title: 'Datepicker open method',
@@ -4532,10 +4536,6 @@ const EXAMPLE_COMPONENTS = {
         title: 'Complex Example',
         component: TabsTemplateLabelExample
     },
-    'template-compiler-overview': {
-        title: 'template-compiler overview',
-        component: TemplateCompilerOverviewExample
-    },
     'toolbar-multirow': {
         title: 'Multi-row toolbar',
         component: ToolbarMultirowExample
@@ -4584,6 +4584,7 @@ const EXAMPLE_LIST = [
     ChipsInputExample,
     ChipsOverviewExample,
     ChipsStackedExample,
+    CompilerOverviewExample,
     DatepickerApiExample,
     DatepickerCustomIconExample,
     DatepickerDisabledExample,
@@ -4681,7 +4682,6 @@ const EXAMPLE_LIST = [
     TableSortingExample,
     TabsOverviewExample,
     TabsTemplateLabelExample,
-    TemplateCompilerOverviewExample,
     ToolbarMultirowExample,
     ToolbarOverviewExample,
     TooltipDelayExample,
@@ -4752,5 +4752,5 @@ class ExampleData {
  * Generated bundle index. Do not edit.
  */
 
-export { ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ListOverviewExample, DatepickerOverviewExample, CardFancyExample, ToolbarMultirowExample, ButtonToggleOverviewExample, ExpansionOverviewExample, StepperOverviewExample, AutocompleteAutoActiveFirstOptionExample as ɵa, AutocompleteDisplayExample as ɵb, AutocompleteFilterExample as ɵc, AutocompleteOverviewExample as ɵd, AutocompleteSimpleExample as ɵe, BlockedApptTimeOverviewExample as ɵf, ButtonOverviewExample as ɵg, ButtonToggleExclusiveExample as ɵh, ButtonTypesExample as ɵi, CardOverviewExample as ɵj, CdkTableBasicExample as ɵk, CheckboxConfigurableExample as ɵl, CheckboxOverviewExample as ɵm, ChipsInputExample as ɵn, ChipsOverviewExample as ɵo, ChipsStackedExample as ɵp, DatepickerApiExample as ɵq, DatepickerCustomIconExample as ɵr, DatepickerDisabledExample as ɵs, DatepickerEventsExample as ɵt, DatepickerFilterExample as ɵu, DatepickerFormatsExample as ɵw, MY_FORMATS as ɵv, DatepickerLocaleExample as ɵx, DatepickerMinMaxExample as ɵy, DatepickerMomentExample as ɵz, DatepickerStartViewExample as ɵba, DatepickerTouchExample as ɵbb, DatepickerValueExample as ɵbc, DialogContentExample as ɵbd, DialogContentExampleDialog as ɵbe, DialogDataExample as ɵbf, DialogDataExampleDialog as ɵbg, DialogElementsExample as ɵbh, DialogElementsExampleDialog as ɵbi, DialogOverviewExample as ɵbj, DialogOverviewExampleDialog as ɵbk, DividerOverviewExample as ɵbl, ElevationOverviewExample as ɵbm, ExpansionStepsExample as ɵbn, FormFieldCustomControlExample as ɵbp, MyTelInput as ɵbo, FormFieldErrorExample as ɵbq, FormFieldHintExample as ɵbr, FormFieldLabelExample as ɵbs, FormFieldOverviewExample as ɵbt, FormFieldPrefixSuffixExample as ɵbu, FormFieldThemingExample as ɵbv, GridListDynamicExample as ɵbw, GridListOverviewExample as ɵbx, IconOverviewExample as ɵby, IconSvgExample as ɵbz, InputAutosizeTextareaExample as ɵca, InputClearableExample as ɵcb, InputErrorStateMatcherExample as ɵcc, InputErrorsExample as ɵcd, InputFormExample as ɵce, InputHintExample as ɵcf, InputOverviewExample as ɵcg, InputPrefixSuffixExample as ɵch, ListSectionsExample as ɵci, ListSelectionExample as ɵcj, MaterialWrapperModule as ɵeu, MenuIconsExample as ɵck, MenuOverviewExample as ɵcl, NestedMenuExample as ɵcm, PaginatorConfigurableExample as ɵcn, PaginatorOverviewExample as ɵco, ProgressBarBufferExample as ɵcp, ProgressBarConfigurableExample as ɵcq, ProgressBarDeterminateExample as ɵcr, ProgressBarIndeterminateExample as ɵcs, ProgressBarQueryExample as ɵct, ProgressSpinnerConfigurableExample as ɵcu, ProgressSpinnerOverviewExample as ɵcv, RadioNgModelExample as ɵcw, RadioOverviewExample as ɵcx, RdAngularWrapperModule as ɵev, SelectCustomTriggerExample as ɵcy, SelectDisabledExample as ɵcz, SelectErrorStateMatcherExample as ɵda, SelectFormExample as ɵdb, SelectHintErrorExample as ɵdc, SelectMultipleExample as ɵdd, SelectNoRippleExample as ɵde, SelectOptgroupExample as ɵdf, SelectOverviewExample as ɵdg, SelectPanelClassExample as ɵdh, SelectResetExample as ɵdi, SelectValueBindingExample as ɵdj, SidenavAutosizeExample as ɵdk, SidenavDisableCloseExample as ɵdl, SidenavDrawerOverviewExample as ɵdm, SidenavFixedExample as ɵdn, SidenavModeExample as ɵdo, SidenavOpenCloseExample as ɵdp, SidenavOverviewExample as ɵdq, SidenavPositionExample as ɵdr, SidenavResponsiveExample as ɵds, SlideToggleConfigurableExample as ɵdt, SlideToggleFormsExample as ɵdu, SlideToggleOverviewExample as ɵdv, SliderConfigurableExample as ɵdw, SliderOverviewExample as ɵdx, PizzaPartyComponent as ɵdz, SnackBarComponentExample as ɵdy, SnackBarOverviewExample as ɵea, SnackBarPositionExample as ɵeb, SortOverviewExample as ɵec, TableBasicExample as ɵed, TableFilteringExample as ɵee, TableHttpExample as ɵef, TableOverviewExample as ɵeg, TablePaginationExample as ɵeh, TableSelectionExample as ɵei, TableSortingExample as ɵej, TabsOverviewExample as ɵek, TabsTemplateLabelExample as ɵel, TemplateCompilerOverviewExample as ɵem, ToolbarOverviewExample as ɵen, TooltipDelayExample as ɵeo, TooltipManualExample as ɵep, TooltipModifiedDefaultsExample as ɵer, myCustomTooltipDefaults as ɵeq, TooltipOverviewExample as ɵes, TooltipPositionExample as ɵet };
+export { ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, ExampleModule, ListOverviewExample, DatepickerOverviewExample, CardFancyExample, ToolbarMultirowExample, ButtonToggleOverviewExample, ExpansionOverviewExample, StepperOverviewExample, AutocompleteAutoActiveFirstOptionExample as ɵa, AutocompleteDisplayExample as ɵb, AutocompleteFilterExample as ɵc, AutocompleteOverviewExample as ɵd, AutocompleteSimpleExample as ɵe, BlockedApptTimeOverviewExample as ɵf, ButtonOverviewExample as ɵg, ButtonToggleExclusiveExample as ɵh, ButtonTypesExample as ɵi, CardOverviewExample as ɵj, CdkTableBasicExample as ɵk, CheckboxConfigurableExample as ɵl, CheckboxOverviewExample as ɵm, ChipsInputExample as ɵn, ChipsOverviewExample as ɵo, ChipsStackedExample as ɵp, CompilerOverviewExample as ɵq, DatepickerApiExample as ɵr, DatepickerCustomIconExample as ɵs, DatepickerDisabledExample as ɵt, DatepickerEventsExample as ɵu, DatepickerFilterExample as ɵv, DatepickerFormatsExample as ɵx, MY_FORMATS as ɵw, DatepickerLocaleExample as ɵy, DatepickerMinMaxExample as ɵz, DatepickerMomentExample as ɵba, DatepickerStartViewExample as ɵbb, DatepickerTouchExample as ɵbc, DatepickerValueExample as ɵbd, DialogContentExample as ɵbe, DialogContentExampleDialog as ɵbf, DialogDataExample as ɵbg, DialogDataExampleDialog as ɵbh, DialogElementsExample as ɵbi, DialogElementsExampleDialog as ɵbj, DialogOverviewExample as ɵbk, DialogOverviewExampleDialog as ɵbl, DividerOverviewExample as ɵbm, ElevationOverviewExample as ɵbn, ExpansionStepsExample as ɵbo, FormFieldCustomControlExample as ɵbq, MyTelInput as ɵbp, FormFieldErrorExample as ɵbr, FormFieldHintExample as ɵbs, FormFieldLabelExample as ɵbt, FormFieldOverviewExample as ɵbu, FormFieldPrefixSuffixExample as ɵbv, FormFieldThemingExample as ɵbw, GridListDynamicExample as ɵbx, GridListOverviewExample as ɵby, IconOverviewExample as ɵbz, IconSvgExample as ɵca, InputAutosizeTextareaExample as ɵcb, InputClearableExample as ɵcc, InputErrorStateMatcherExample as ɵcd, InputErrorsExample as ɵce, InputFormExample as ɵcf, InputHintExample as ɵcg, InputOverviewExample as ɵch, InputPrefixSuffixExample as ɵci, ListSectionsExample as ɵcj, ListSelectionExample as ɵck, MaterialWrapperModule as ɵeu, MenuIconsExample as ɵcl, MenuOverviewExample as ɵcm, NestedMenuExample as ɵcn, PaginatorConfigurableExample as ɵco, PaginatorOverviewExample as ɵcp, ProgressBarBufferExample as ɵcq, ProgressBarConfigurableExample as ɵcr, ProgressBarDeterminateExample as ɵcs, ProgressBarIndeterminateExample as ɵct, ProgressBarQueryExample as ɵcu, ProgressSpinnerConfigurableExample as ɵcv, ProgressSpinnerOverviewExample as ɵcw, RadioNgModelExample as ɵcx, RadioOverviewExample as ɵcy, RdAngularWrapperModule as ɵev, SelectCustomTriggerExample as ɵcz, SelectDisabledExample as ɵda, SelectErrorStateMatcherExample as ɵdb, SelectFormExample as ɵdc, SelectHintErrorExample as ɵdd, SelectMultipleExample as ɵde, SelectNoRippleExample as ɵdf, SelectOptgroupExample as ɵdg, SelectOverviewExample as ɵdh, SelectPanelClassExample as ɵdi, SelectResetExample as ɵdj, SelectValueBindingExample as ɵdk, SidenavAutosizeExample as ɵdl, SidenavDisableCloseExample as ɵdm, SidenavDrawerOverviewExample as ɵdn, SidenavFixedExample as ɵdo, SidenavModeExample as ɵdp, SidenavOpenCloseExample as ɵdq, SidenavOverviewExample as ɵdr, SidenavPositionExample as ɵds, SidenavResponsiveExample as ɵdt, SlideToggleConfigurableExample as ɵdu, SlideToggleFormsExample as ɵdv, SlideToggleOverviewExample as ɵdw, SliderConfigurableExample as ɵdx, SliderOverviewExample as ɵdy, PizzaPartyComponent as ɵea, SnackBarComponentExample as ɵdz, SnackBarOverviewExample as ɵeb, SnackBarPositionExample as ɵec, SortOverviewExample as ɵed, TableBasicExample as ɵee, TableFilteringExample as ɵef, TableHttpExample as ɵeg, TableOverviewExample as ɵeh, TablePaginationExample as ɵei, TableSelectionExample as ɵej, TableSortingExample as ɵek, TabsOverviewExample as ɵel, TabsTemplateLabelExample as ɵem, ToolbarOverviewExample as ɵen, TooltipDelayExample as ɵeo, TooltipManualExample as ɵep, TooltipModifiedDefaultsExample as ɵer, myCustomTooltipDefaults as ɵeq, TooltipOverviewExample as ɵes, TooltipPositionExample as ɵet };
 //# sourceMappingURL=material-examples.js.map

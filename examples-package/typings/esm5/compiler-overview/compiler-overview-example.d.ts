@@ -7,9 +7,9 @@ export declare class State {
     constructor(name: string, population: string, flag: string);
 }
 /**
- * @title template-compiler overview
+ * @title compiler overview
  */
-export declare class TemplateCompilerOverviewExample {
+export declare class CompilerOverviewExample {
     stateCtrl: FormControl;
     filteredStates: Observable<any[]>;
     states: State[];

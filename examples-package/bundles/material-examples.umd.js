@@ -871,6 +871,71 @@ var ChipsStackedExample = /** @class */ (function () {
  * @suppress {checkTypes} checked by tsc
  */
 /**
+ * \@title compiler overview
+ */
+var CompilerOverviewExample = /** @class */ (function () {
+    function CompilerOverviewExample() {
+        var _this = this;
+        this.states = [
+            {
+                name: 'Arkansas',
+                population: '2.978M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+            },
+            {
+                name: 'California',
+                population: '39.14M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+            },
+            {
+                name: 'Florida',
+                population: '20.27M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+            },
+            {
+                name: 'Texas',
+                population: '27.47M',
+                // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
+                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+            }
+        ];
+        this.stateCtrl = new _angular_forms.FormControl();
+        this.filteredStates = this.stateCtrl.valueChanges
+            .pipe(rxjs_operators_startWith.startWith(''), rxjs_operators_map.map(function (state) { return state ? _this.filterStates(state) : _this.states.slice(); }));
+    }
+    /**
+     * @param {?} name
+     * @return {?}
+     */
+    CompilerOverviewExample.prototype.filterStates = /**
+     * @param {?} name
+     * @return {?}
+     */
+    function (name) {
+        return this.states.filter(function (state) {
+            return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
+        });
+    };
+    CompilerOverviewExample.decorators = [
+        { type: _angular_core.Component, args: [{
+                    selector: 'compiler-overview-example',
+                    template: "<form class=\"example-form\"><mat-form-field class=\"example-full-width\"><input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\"><mat-autocomplete #auto=\"matAutocomplete\"><mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\"><img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\"> <span>{{ state.name }}</span> | <small>Population: {{state.population}}</small></mat-option></mat-autocomplete></mat-form-field><br><mat-slide-toggle [checked]=\"stateCtrl.disabled\" (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">Disable Input?</mat-slide-toggle></form>",
+                    styles: [".example-form { min-width: 150px; max-width: 500px; width: 100%; } .example-full-width { width: 100%; } "]
+                },] },
+    ];
+    /** @nocollapse */
+    CompilerOverviewExample.ctorParameters = function () { return []; };
+    return CompilerOverviewExample;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * \@title Datepicker open method
  */
 var DatepickerApiExample = /** @class */ (function () {
@@ -4259,71 +4324,6 @@ var TabsTemplateLabelExample = /** @class */ (function () {
  * @suppress {checkTypes} checked by tsc
  */
 /**
- * \@title template-compiler overview
- */
-var TemplateCompilerOverviewExample = /** @class */ (function () {
-    function TemplateCompilerOverviewExample() {
-        var _this = this;
-        this.states = [
-            {
-                name: 'Arkansas',
-                population: '2.978M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-            },
-            {
-                name: 'California',
-                population: '39.14M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-            },
-            {
-                name: 'Florida',
-                population: '20.27M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-            },
-            {
-                name: 'Texas',
-                population: '27.47M',
-                // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-                flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-            }
-        ];
-        this.stateCtrl = new _angular_forms.FormControl();
-        this.filteredStates = this.stateCtrl.valueChanges
-            .pipe(rxjs_operators_startWith.startWith(''), rxjs_operators_map.map(function (state) { return state ? _this.filterStates(state) : _this.states.slice(); }));
-    }
-    /**
-     * @param {?} name
-     * @return {?}
-     */
-    TemplateCompilerOverviewExample.prototype.filterStates = /**
-     * @param {?} name
-     * @return {?}
-     */
-    function (name) {
-        return this.states.filter(function (state) {
-            return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
-        });
-    };
-    TemplateCompilerOverviewExample.decorators = [
-        { type: _angular_core.Component, args: [{
-                    selector: 'template-compiler-overview-example',
-                    template: "<form class=\"example-form\"><mat-form-field class=\"example-full-width\"><input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\"><mat-autocomplete #auto=\"matAutocomplete\"><mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\"><img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\"> <span>{{ state.name }}</span> | <small>Population: {{state.population}}</small></mat-option></mat-autocomplete></mat-form-field><br><mat-slide-toggle [checked]=\"stateCtrl.disabled\" (change)=\"stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()\">Disable Input?</mat-slide-toggle></form>",
-                    styles: [".example-form { min-width: 150px; max-width: 500px; width: 100%; } .example-full-width { width: 100%; } "]
-                },] },
-    ];
-    /** @nocollapse */
-    TemplateCompilerOverviewExample.ctorParameters = function () { return []; };
-    return TemplateCompilerOverviewExample;
-}());
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
  * \@title Multi-row toolbar
  */
 var ToolbarMultirowExample = /** @class */ (function () {
@@ -4565,6 +4565,10 @@ var EXAMPLE_COMPONENTS = {
     'chips-stacked': {
         title: 'Stacked chips',
         component: ChipsStackedExample
+    },
+    'compiler-overview': {
+        title: 'compiler overview',
+        component: CompilerOverviewExample
     },
     'datepicker-api': {
         title: 'Datepicker open method',
@@ -4966,10 +4970,6 @@ var EXAMPLE_COMPONENTS = {
         title: 'Complex Example',
         component: TabsTemplateLabelExample
     },
-    'template-compiler-overview': {
-        title: 'template-compiler overview',
-        component: TemplateCompilerOverviewExample
-    },
     'toolbar-multirow': {
         title: 'Multi-row toolbar',
         component: ToolbarMultirowExample
@@ -5018,6 +5018,7 @@ var EXAMPLE_LIST = [
     ChipsInputExample,
     ChipsOverviewExample,
     ChipsStackedExample,
+    CompilerOverviewExample,
     DatepickerApiExample,
     DatepickerCustomIconExample,
     DatepickerDisabledExample,
@@ -5115,7 +5116,6 @@ var EXAMPLE_LIST = [
     TableSortingExample,
     TabsOverviewExample,
     TabsTemplateLabelExample,
-    TemplateCompilerOverviewExample,
     ToolbarMultirowExample,
     ToolbarOverviewExample,
     TooltipDelayExample,
@@ -5202,109 +5202,109 @@ exports.ɵm = CheckboxOverviewExample;
 exports.ɵn = ChipsInputExample;
 exports.ɵo = ChipsOverviewExample;
 exports.ɵp = ChipsStackedExample;
-exports.ɵq = DatepickerApiExample;
-exports.ɵr = DatepickerCustomIconExample;
-exports.ɵs = DatepickerDisabledExample;
-exports.ɵt = DatepickerEventsExample;
-exports.ɵu = DatepickerFilterExample;
-exports.ɵw = DatepickerFormatsExample;
-exports.ɵv = MY_FORMATS;
-exports.ɵx = DatepickerLocaleExample;
-exports.ɵy = DatepickerMinMaxExample;
-exports.ɵz = DatepickerMomentExample;
-exports.ɵba = DatepickerStartViewExample;
-exports.ɵbb = DatepickerTouchExample;
-exports.ɵbc = DatepickerValueExample;
-exports.ɵbd = DialogContentExample;
-exports.ɵbe = DialogContentExampleDialog;
-exports.ɵbf = DialogDataExample;
-exports.ɵbg = DialogDataExampleDialog;
-exports.ɵbh = DialogElementsExample;
-exports.ɵbi = DialogElementsExampleDialog;
-exports.ɵbj = DialogOverviewExample;
-exports.ɵbk = DialogOverviewExampleDialog;
-exports.ɵbl = DividerOverviewExample;
-exports.ɵbm = ElevationOverviewExample;
-exports.ɵbn = ExpansionStepsExample;
-exports.ɵbp = FormFieldCustomControlExample;
-exports.ɵbo = MyTelInput;
-exports.ɵbq = FormFieldErrorExample;
-exports.ɵbr = FormFieldHintExample;
-exports.ɵbs = FormFieldLabelExample;
-exports.ɵbt = FormFieldOverviewExample;
-exports.ɵbu = FormFieldPrefixSuffixExample;
-exports.ɵbv = FormFieldThemingExample;
-exports.ɵbw = GridListDynamicExample;
-exports.ɵbx = GridListOverviewExample;
-exports.ɵby = IconOverviewExample;
-exports.ɵbz = IconSvgExample;
-exports.ɵca = InputAutosizeTextareaExample;
-exports.ɵcb = InputClearableExample;
-exports.ɵcc = InputErrorStateMatcherExample;
-exports.ɵcd = InputErrorsExample;
-exports.ɵce = InputFormExample;
-exports.ɵcf = InputHintExample;
-exports.ɵcg = InputOverviewExample;
-exports.ɵch = InputPrefixSuffixExample;
-exports.ɵci = ListSectionsExample;
-exports.ɵcj = ListSelectionExample;
+exports.ɵq = CompilerOverviewExample;
+exports.ɵr = DatepickerApiExample;
+exports.ɵs = DatepickerCustomIconExample;
+exports.ɵt = DatepickerDisabledExample;
+exports.ɵu = DatepickerEventsExample;
+exports.ɵv = DatepickerFilterExample;
+exports.ɵx = DatepickerFormatsExample;
+exports.ɵw = MY_FORMATS;
+exports.ɵy = DatepickerLocaleExample;
+exports.ɵz = DatepickerMinMaxExample;
+exports.ɵba = DatepickerMomentExample;
+exports.ɵbb = DatepickerStartViewExample;
+exports.ɵbc = DatepickerTouchExample;
+exports.ɵbd = DatepickerValueExample;
+exports.ɵbe = DialogContentExample;
+exports.ɵbf = DialogContentExampleDialog;
+exports.ɵbg = DialogDataExample;
+exports.ɵbh = DialogDataExampleDialog;
+exports.ɵbi = DialogElementsExample;
+exports.ɵbj = DialogElementsExampleDialog;
+exports.ɵbk = DialogOverviewExample;
+exports.ɵbl = DialogOverviewExampleDialog;
+exports.ɵbm = DividerOverviewExample;
+exports.ɵbn = ElevationOverviewExample;
+exports.ɵbo = ExpansionStepsExample;
+exports.ɵbq = FormFieldCustomControlExample;
+exports.ɵbp = MyTelInput;
+exports.ɵbr = FormFieldErrorExample;
+exports.ɵbs = FormFieldHintExample;
+exports.ɵbt = FormFieldLabelExample;
+exports.ɵbu = FormFieldOverviewExample;
+exports.ɵbv = FormFieldPrefixSuffixExample;
+exports.ɵbw = FormFieldThemingExample;
+exports.ɵbx = GridListDynamicExample;
+exports.ɵby = GridListOverviewExample;
+exports.ɵbz = IconOverviewExample;
+exports.ɵca = IconSvgExample;
+exports.ɵcb = InputAutosizeTextareaExample;
+exports.ɵcc = InputClearableExample;
+exports.ɵcd = InputErrorStateMatcherExample;
+exports.ɵce = InputErrorsExample;
+exports.ɵcf = InputFormExample;
+exports.ɵcg = InputHintExample;
+exports.ɵch = InputOverviewExample;
+exports.ɵci = InputPrefixSuffixExample;
+exports.ɵcj = ListSectionsExample;
+exports.ɵck = ListSelectionExample;
 exports.ɵeu = MaterialWrapperModule;
-exports.ɵck = MenuIconsExample;
-exports.ɵcl = MenuOverviewExample;
-exports.ɵcm = NestedMenuExample;
-exports.ɵcn = PaginatorConfigurableExample;
-exports.ɵco = PaginatorOverviewExample;
-exports.ɵcp = ProgressBarBufferExample;
-exports.ɵcq = ProgressBarConfigurableExample;
-exports.ɵcr = ProgressBarDeterminateExample;
-exports.ɵcs = ProgressBarIndeterminateExample;
-exports.ɵct = ProgressBarQueryExample;
-exports.ɵcu = ProgressSpinnerConfigurableExample;
-exports.ɵcv = ProgressSpinnerOverviewExample;
-exports.ɵcw = RadioNgModelExample;
-exports.ɵcx = RadioOverviewExample;
+exports.ɵcl = MenuIconsExample;
+exports.ɵcm = MenuOverviewExample;
+exports.ɵcn = NestedMenuExample;
+exports.ɵco = PaginatorConfigurableExample;
+exports.ɵcp = PaginatorOverviewExample;
+exports.ɵcq = ProgressBarBufferExample;
+exports.ɵcr = ProgressBarConfigurableExample;
+exports.ɵcs = ProgressBarDeterminateExample;
+exports.ɵct = ProgressBarIndeterminateExample;
+exports.ɵcu = ProgressBarQueryExample;
+exports.ɵcv = ProgressSpinnerConfigurableExample;
+exports.ɵcw = ProgressSpinnerOverviewExample;
+exports.ɵcx = RadioNgModelExample;
+exports.ɵcy = RadioOverviewExample;
 exports.ɵev = RdAngularWrapperModule;
-exports.ɵcy = SelectCustomTriggerExample;
-exports.ɵcz = SelectDisabledExample;
-exports.ɵda = SelectErrorStateMatcherExample;
-exports.ɵdb = SelectFormExample;
-exports.ɵdc = SelectHintErrorExample;
-exports.ɵdd = SelectMultipleExample;
-exports.ɵde = SelectNoRippleExample;
-exports.ɵdf = SelectOptgroupExample;
-exports.ɵdg = SelectOverviewExample;
-exports.ɵdh = SelectPanelClassExample;
-exports.ɵdi = SelectResetExample;
-exports.ɵdj = SelectValueBindingExample;
-exports.ɵdk = SidenavAutosizeExample;
-exports.ɵdl = SidenavDisableCloseExample;
-exports.ɵdm = SidenavDrawerOverviewExample;
-exports.ɵdn = SidenavFixedExample;
-exports.ɵdo = SidenavModeExample;
-exports.ɵdp = SidenavOpenCloseExample;
-exports.ɵdq = SidenavOverviewExample;
-exports.ɵdr = SidenavPositionExample;
-exports.ɵds = SidenavResponsiveExample;
-exports.ɵdt = SlideToggleConfigurableExample;
-exports.ɵdu = SlideToggleFormsExample;
-exports.ɵdv = SlideToggleOverviewExample;
-exports.ɵdw = SliderConfigurableExample;
-exports.ɵdx = SliderOverviewExample;
-exports.ɵdz = PizzaPartyComponent;
-exports.ɵdy = SnackBarComponentExample;
-exports.ɵea = SnackBarOverviewExample;
-exports.ɵeb = SnackBarPositionExample;
-exports.ɵec = SortOverviewExample;
-exports.ɵed = TableBasicExample;
-exports.ɵee = TableFilteringExample;
-exports.ɵef = TableHttpExample;
-exports.ɵeg = TableOverviewExample;
-exports.ɵeh = TablePaginationExample;
-exports.ɵei = TableSelectionExample;
-exports.ɵej = TableSortingExample;
-exports.ɵek = TabsOverviewExample;
-exports.ɵel = TabsTemplateLabelExample;
-exports.ɵem = TemplateCompilerOverviewExample;
+exports.ɵcz = SelectCustomTriggerExample;
+exports.ɵda = SelectDisabledExample;
+exports.ɵdb = SelectErrorStateMatcherExample;
+exports.ɵdc = SelectFormExample;
+exports.ɵdd = SelectHintErrorExample;
+exports.ɵde = SelectMultipleExample;
+exports.ɵdf = SelectNoRippleExample;
+exports.ɵdg = SelectOptgroupExample;
+exports.ɵdh = SelectOverviewExample;
+exports.ɵdi = SelectPanelClassExample;
+exports.ɵdj = SelectResetExample;
+exports.ɵdk = SelectValueBindingExample;
+exports.ɵdl = SidenavAutosizeExample;
+exports.ɵdm = SidenavDisableCloseExample;
+exports.ɵdn = SidenavDrawerOverviewExample;
+exports.ɵdo = SidenavFixedExample;
+exports.ɵdp = SidenavModeExample;
+exports.ɵdq = SidenavOpenCloseExample;
+exports.ɵdr = SidenavOverviewExample;
+exports.ɵds = SidenavPositionExample;
+exports.ɵdt = SidenavResponsiveExample;
+exports.ɵdu = SlideToggleConfigurableExample;
+exports.ɵdv = SlideToggleFormsExample;
+exports.ɵdw = SlideToggleOverviewExample;
+exports.ɵdx = SliderConfigurableExample;
+exports.ɵdy = SliderOverviewExample;
+exports.ɵea = PizzaPartyComponent;
+exports.ɵdz = SnackBarComponentExample;
+exports.ɵeb = SnackBarOverviewExample;
+exports.ɵec = SnackBarPositionExample;
+exports.ɵed = SortOverviewExample;
+exports.ɵee = TableBasicExample;
+exports.ɵef = TableFilteringExample;
+exports.ɵeg = TableHttpExample;
+exports.ɵeh = TableOverviewExample;
+exports.ɵei = TablePaginationExample;
+exports.ɵej = TableSelectionExample;
+exports.ɵek = TableSortingExample;
+exports.ɵel = TabsOverviewExample;
+exports.ɵem = TabsTemplateLabelExample;
 exports.ɵen = ToolbarOverviewExample;
 exports.ɵeo = TooltipDelayExample;
 exports.ɵep = TooltipManualExample;
